@@ -77,4 +77,8 @@ kubectl delete namespace myapp
 eksctl delete cluster --name geolocation-cluster --region us-east-1
 
 
+<<<<<<< HEAD
 ```# geoMVPX0-sonar-cicd
+=======
+```
+>>>>>>> fc36a3ec76e7e71d56274b5588329f6dfdd7b668
