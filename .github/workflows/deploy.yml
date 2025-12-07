@@ -1,28 +1,8 @@
-# .github/workflows/config_sonar_ci-cd.yml
+
 
 name: Geolocation App CI/CD
 
-# This workflow builds the project and runs SonarQube analysis on every push to the main branch.
 
-# It uses Maven for building and SonarQube for code quality analysis.
-
-# The workflow is triggered on pushes to the main branch.
-
-# It caches Maven dependencies and SonarQube analysis results to speed up the build process.
-
-# The SonarQube analysis requires a project key, which should be set in the secrets of the repository.
-
-# The workflow consists of two jobs: 'build' and 'sonar'.
-
-# The 'build' job compiles the project and runs tests, while the 'sonar' job performs the SonarQube analysis.
-
-# The 'sonar' job depends on the 'build' job, ensuring that the analysis runs only after a successful build.
-
-# The workflow uses JDK 17 and caches Maven packages to optimize build times.
-
-# The SonarQube analysis is configured to use the SonarQube server URL and authentication token stored in GitHub secrets.
-
-# The workflow is designed to run on an Ubuntu environment and uses the latest versions of the actions for checkout, Java setup, and caching.
 
 on:
 
@@ -42,7 +22,7 @@ permissions:
 
  
 
-# GLOBAL ENV: Only GitHub secrets or constants
+
 
 env:
 
@@ -198,16 +178,4 @@ jobs:
 
     
 
-     # - name: Verify Quality Gate Status
-
-     #   uses: sonarsource/sonarqube-quality-gate-action@master
-
-     #   with:
-
-     #       scanMetadataReportFile: .scannerwork/report-task.txt
-
-     #       sonarToken: ${{ secrets.SONAR_TOKEN }}
-
-     #       timeoutMinutes: 5
-
-     #       sleepTime: 10  # Seconds between status checks
+     
