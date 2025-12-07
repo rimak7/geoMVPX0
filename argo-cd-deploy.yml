@@ -1,0 +1,26 @@
+# this file is used to deploy ArgoCD in the cluster
+# and to deploy the application using ArgoCD
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: utrains-argo-app
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/utrains/geo_github_action.git
+    path: geo-app-chart
+    targetRevision: PROD
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: geo-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
+      - ServerSideApply=true
